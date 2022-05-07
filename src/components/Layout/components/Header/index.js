@@ -1,14 +1,28 @@
 import classNames from 'classnames/bind';
-import styles from './Header.module.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
-const cx = classNames.bind(styles) // Dung de viet dau `-`. Vd: post-item. Neu khong dung: styles['post-item']. Neu dung: cx('post-item')
+import styles from './Header.module.scss';
+import images from '~/assets/images';
+
+const cx = classNames.bind(styles); // Dung de viet dau `-`. Vd: post-item. Neu khong dung: styles['post-item']. Neu dung: cx('post-item')
 
 function Header() {
-    return ( 
+    return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                {/* Logo */}
-                {/* Search */}
+                <img src={images.logo} alt="TikTok" />
+                <div className={cx('search')}>
+                    <input placeholder="Search accounts and videos" spellCheck={false} />
+                    <button className={cx('clear')}>
+                        <FontAwesomeIcon icon={faCircleXmark} />
+                    </button>
+                    <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
+                    <button className={cx('search-btn')}>
+                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    </button>
+                </div>
+                <div className={cx('actions')}></div>
             </div>
         </header>
     );
