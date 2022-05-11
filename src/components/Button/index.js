@@ -16,9 +16,9 @@ function Button({
     rounded = false,
     children,
     className,
-    onClick,
     leftIcon,
     rightIcon,
+    onClick,
     ...passProps
 }) {
     let Comp = 'button';
