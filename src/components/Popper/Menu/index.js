@@ -6,7 +6,6 @@ import MenuItem from './MenuItem';
 import Header from './Header';
 import styles from './Menu.module.scss';
 import { useState } from 'react';
-import { logDOM } from '@testing-library/react';
 
 const cx = classNames.bind(styles); // Dung de viet dau `-`. Vd: post-item. Neu khong dung: styles['post-item']. Neu dung: cx('post-item')
 
