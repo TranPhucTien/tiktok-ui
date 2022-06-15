@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 
@@ -11,11 +12,11 @@ const cx = classNames.bind(styles); // Dung de viet dau `-`. Vd: post-item. Neu 
 
 const defaultFn = () => {};
 
-function Menu({ children, items = [], onChange = defaultFn, hideOnClick = false }) {
+function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
-    const renderItem = () => {
+    const renderItems = () => {
         return current.data.map((item, index) => {
             const isParent = !!item.children;
 
@@ -47,13 +48,13 @@ function Menu({ children, items = [], onChange = defaultFn, hideOnClick = false 
                     <PopperWrapper className={cx('menu-popper')}>
                         {history.length > 1 && (
                             <Header
-                                title="Language"
+                                title={current.title}
                                 onBack={() => {
                                     setHistory((prev) => prev.slice(0, prev.length - 1));
                                 }}
                             />
                         )}
-                        <div className={cx('menu-body')}>{renderItem()}</div>
+                        <div className={cx('menu-body')}>{renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}
@@ -63,5 +64,12 @@ function Menu({ children, items = [], onChange = defaultFn, hideOnClick = false 
         </Tippy>
     );
 }
+
+Menu.propTypes = {
+    children: PropTypes.node.isRequired,
+    items: PropTypes.array,
+    hideOnClick: PropTypes.bool,
+    onChange: PropTypes.func,
+};
 
 export default Menu;

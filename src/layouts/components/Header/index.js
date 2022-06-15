@@ -67,7 +67,6 @@ function Header() {
                 // Handle change language
                 break;
             default:
-            // Do some thing
         }
     };
 
@@ -100,7 +99,7 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <Link to={config.routes.home} className={cx('logo-link')}>
-                    <img src={images.logo} alt="TikTok" />
+                    <img src={images.logo} alt="Tiktok" />
                 </Link>
 
                 <Search />
@@ -108,17 +107,17 @@ function Header() {
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>
-                            <Tippy content="Upload video" placement="bottom">
+                            <Tippy delay={[0, 50]} content="Upload video" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <UploadIcon />
                                 </button>
                             </Tippy>
-                            <Tippy content="Message" placement="bottom">
+                            <Tippy delay={[0, 50]} content="Message" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <MessageIcon />
                                 </button>
                             </Tippy>
-                            <Tippy content="Inbox" placement="bottom">
+                            <Tippy delay={[0, 50]} content="Inbox" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <InboxIcon />
                                     <span className={cx('badge')}>12</span>
@@ -131,13 +130,13 @@ function Header() {
                             <Button primary>Log in</Button>
                         </>
                     )}
+
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
                             <Image
-                                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/ea0854578085ab26effc2c7b8cefa270~c5_300x300.webp?x-expires=1653822000&x-signature=09InvYKVpwSm9agztMQXh35C5jo%3D"
-                                alt="Nguyen Van A"
                                 className={cx('user-avatar')}
-                                // fallback="https://ih0.redbubble.net/image.618427277.3222/flat,1000x1000,075,f.u2.jpg"
+                                src="https://files.fullstack.edu.vn/f8-prod/user_avatars/1/623d4b2d95cec.png"
+                                alt="Nguyen Van A"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
